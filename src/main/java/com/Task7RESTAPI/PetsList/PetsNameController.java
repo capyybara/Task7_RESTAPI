@@ -28,7 +28,7 @@ public class PetsNameController {
     }
 
 
-//    講義の資料のように、"name":"Pochi" のみの登録はできました
+    //    講義の資料のように、"name":"Pochi" のみの登録はできました
     @PostMapping("/petnames")
     public ResponseEntity<String>create(@RequestBody NameCreateForm form){
         URI url=UriComponentsBuilder.fromUriString("http://localhost:8080")
@@ -39,9 +39,7 @@ public class PetsNameController {
     }
 
 
-
-
-//    このコードの場合、500エラーが出る
+    //    このコードの場合、500エラーが出る
     @PostMapping("/petnames")
     public ResponseEntity<String> create(@PathVariable int id, @RequestBody NameCreateForm form){
         URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
@@ -50,6 +48,9 @@ public class PetsNameController {
                 .toUri();
         return ResponseEntity.created(url).body("name successfully created");
     }
+
+
+
 
 
 
