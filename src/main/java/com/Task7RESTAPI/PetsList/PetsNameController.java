@@ -35,24 +35,18 @@ public class PetsNameController {
                 .path("/petnames/id")
                 .build()
                 .toUri();
-        return ResponseEntity.created(url).body("namesuccessfullycreated");
+        return ResponseEntity.created(url).body("Petsname successfully created");
     }
 
 
-    //    このコードの場合、500エラーが出る
-    @PostMapping("/petnames")
-    public ResponseEntity<String> create(@PathVariable int id, @RequestBody NameCreateForm form){
-        URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-                .path("/petnames/id")
-                .build()
-                .toUri();
-        return ResponseEntity.created(url).body("name successfully created");
-    }
-
-
-
-
-
-
+//       このコードの場合、500エラーが出る
+//    @PostMapping("/petnames")
+//    public ResponseEntity<String> create(@PathVariable int id, @RequestBody NameCreateForm form){
+//        URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
+//                .path("/petnames/id")
+//                .build()
+//                .toUri();
+//        return ResponseEntity.created(url).body("name successfully created");
+//    }
 
 }
