@@ -24,6 +24,8 @@ Date: Mon, 07 Aug 2023 05:26:37 GMT
 - Postmanでの実行結果
 <img width="636" alt="第7回課題 GETリクエスト" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/a71af865-e7ff-4d85-9784-ed8603d4441b">
 
+<br>
+<br>
 
 ## POST リクエスト
 
