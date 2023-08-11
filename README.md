@@ -28,29 +28,35 @@ Date: Mon, 07 Aug 2023 05:26:37 GMT
 <br>
 
 ## POST リクエスト
-- curlコマンド（一度やってみたもの）<br>
-[元の記述](https://github.com/capyybara/Task7_RESTAPI/blob/6a4503989816ad69f7c44962c6de8f76136f50bd/src/main/java/com/Task7RESTAPI/PetsList/PetsNameController.java#L31C4-L41C1)
-
-- （仮）実行結果 <br>
+- curlコマンドでの実行結果
 
 ```
-$ curl 'http://localhost:8080/petnames' \
-> -H 'Content-Type: application/json' \
-> -d '{
->     "petname": "Ponta"
-> }' -i
-HTTP/1.1 201 
-Location: http://localhost:8080/petnames/id
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 25
-Date: Mon, 07 Aug 2023 06:05:32 GMT
- 
-name successfully createdfujitasakinoMacBook-Air:~ fujitasaki$ 
-
+ fujitasaki$ curl 'http://localhost:8080/petnames' -H 'Content-Type: application/json' -d '{"id":3, "petsname":"Pocho", "age":3 }' -v
+*   Trying 127.0.0.1:8080...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> POST /petnames HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.88.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 38
+> 
+< HTTP/1.1 201 
+< Location: http://localhost:8080/petnames/id
+< Content-Type: text/plain;charset=UTF-8
+< Content-Length: 29
+< Date: Fri, 11 Aug 2023 06:18:51 GMT
+< 
+* Connection #0 to host localhost left intact
+Petsname successfully createdfujitasakinoMacBook-Air:Task7_PetsList fujitasaki$ 
 ```
 
+<br>
+
+- Postmanでの結果
 <br><br>
-- 現状のメモです💦
-<img width="1440" alt="スクリーンショット 2023-08-07 17 48 29" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/3f2243f4-ba7c-423b-9b75-d1f47dd86ff7">
+  <img width="654" alt="スクリーンショット 2023-08-11 15 09 23" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/a2b88b53-4d12-4e71-a35f-e40b76f8005a">
 
-  
+
+
+

@@ -28,7 +28,7 @@ public class PetsNameController {
     }
 
 
-    //    講義の資料のように、"name":"Pochi" のみの登録はできました
+    //   POSTはブラウザでは確認できない????→HTMLの編集が必要になる？
     @PostMapping("/petnames")
     public ResponseEntity<String>create(@RequestBody NameCreateForm form){
         URI url=UriComponentsBuilder.fromUriString("http://localhost:8080")
@@ -38,15 +38,5 @@ public class PetsNameController {
         return ResponseEntity.created(url).body("Petsname successfully created");
     }
 
-
-//       このコードの場合、500エラーが出る
-//    @PostMapping("/petnames")
-//    public ResponseEntity<String> create(@PathVariable int id, @RequestBody NameCreateForm form){
-//        URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-//                .path("/petnames/id")
-//                .build()
-//                .toUri();
-//        return ResponseEntity.created(url).body("name successfully created");
-//    }
 
 }
