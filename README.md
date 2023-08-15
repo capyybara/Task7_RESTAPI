@@ -3,7 +3,7 @@
 [src/main](https://github.com/capyybara/Task7_RESTAPI/tree/master/src/main/java/com/Task7RESTAPI/PetsList)
 に記載されています
 
-<br>
+<br><br>
 
 ---
 
@@ -99,5 +99,37 @@ curl -X PATCH 'http://localhost:8080/petnames/1' \
 
 <img width="1440" alt="PATCH Postman" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/507cfd7f-1614-48a0-8639-0bf461dbcc85">
 
+<br><br>
+
+---
+
+## DELETE
+
+- curlコマンド
+
+```
+fujitasaki$ curl --location --request DELETE 'http://localhost:8080/petnames/4' -v
+*   Trying 127.0.0.1:8080...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+> DELETE /petnames/4 HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.88.1
+> Accept: */*
+> 
+< HTTP/1.1 200 
+< Content-Type: application/json
+< Transfer-Encoding: chunked
+< Date: Tue, 15 Aug 2023 13:39:18 GMT
+< 
+* Connection #0 to host localhost left intact
+{"message":"successfully deleted"}fujitasakinoMacBook-Air:Task7_PetsList fujitasaki$ 
+
+```
+
+<br>
+
+- Postmanでの結果
+
+<img width="611" alt="Task7 DELETE Postman" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/07aa8b3c-d555-475d-b15b-a2035a42e5e7">
 
 

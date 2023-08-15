@@ -45,4 +45,9 @@ public class PetsNameController {
         return ResponseEntity.ok(Map.of("message", "petsname successfully updated"));
     }
 
+    @DeleteMapping("/petnames/{id}")
+    public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id){
+        return ResponseEntity.ok(Map.of("message", "successfully deleted"));
+    }
+
 }
