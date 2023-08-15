@@ -7,6 +7,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 //【課題】HTTPメソッドのGET/POST/PATCH/DELETE のリクエストを扱えるController を実装する　
 // オリジナルの仕様を追加
@@ -38,5 +39,10 @@ public class PetsNameController {
         return ResponseEntity.created(url).body("Petsname successfully created");
     }
 
+
+    @PatchMapping("/petnames/{id}")
+    public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody NameUpdateForm form){
+        return ResponseEntity.ok(Map.of("message", "petsname successfully updated"));
+    }
 
 }
