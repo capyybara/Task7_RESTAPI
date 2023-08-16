@@ -1,7 +1,13 @@
 package com.Task7RESTAPI.PetsList;
+import org.springframework.validation.annotation.Validated;
+import javax.validation.constraints.NotBlank;
 
 public class NameCreateForm {
+
+    @Validated
+    @NotBlank
     public String petsname;
+
     public int id;
     public int age;
 

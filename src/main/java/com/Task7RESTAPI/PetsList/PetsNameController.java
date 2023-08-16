@@ -3,6 +3,7 @@ package com.Task7RESTAPI.PetsList;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.validation.annotation.Validated;
 
 
 import java.net.URI;
@@ -13,6 +14,7 @@ import java.util.Map;
 // オリジナルの仕様を追加
 
 @RestController
+@Validated
 public class PetsNameController {
 
     //    講義をみて作ってみたもの
@@ -31,7 +33,7 @@ public class PetsNameController {
 
     //   POSTはブラウザでは確認できない????→HTMLの編集が必要になる？
     @PostMapping("/petnames")
-    public ResponseEntity<String>create(@RequestBody NameCreateForm form){
+    public ResponseEntity<String>create(@Validated @RequestBody NameCreateForm form){
         URI url=UriComponentsBuilder.fromUriString("http://localhost:8080")
                 .path("/petnames/id")
                 .build()
