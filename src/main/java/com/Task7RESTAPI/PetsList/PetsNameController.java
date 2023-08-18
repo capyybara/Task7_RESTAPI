@@ -43,7 +43,7 @@ public class PetsNameController {
 
     @PatchMapping("/petnames/{id}")
     public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody NameUpdateForm form){
-        return ResponseEntity.ok(Map.of("message", "petsname successfully updated"));
+        return ResponseEntity.ok(Map.of("message", "Petsname successfully updated"));
     }
 
     @DeleteMapping("/petnames/{id}")

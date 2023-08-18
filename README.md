@@ -11,21 +11,22 @@
 - curlコマンドでの実行結果
 
 ```
-curl --location --request GET 'http://localhost:8080/petnames/1' -i
+fujitasakinoMacBook-Air:Task7_PetsList fujitasaki$ curl --location --request GET 'http://localhost:8080/petnames/1' -i
 HTTP/1.1 200 
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Mon, 07 Aug 2023 05:26:37 GMT
+Date: Fri, 18 Aug 2023 08:25:59 GMT
 
-{"id":1,"petsName":"Tama","age":1}fujitasakinoMacBook-Air:~ fujitasaki$ 
-![image](https://github.com/capyybara/Task7_RESTAPI/assets/137416338/208f84e7-5702-4c0b-9ef2-bab5a46bfca7)
+{"id":1,"petsName":"Tama","age":2,"birthplace":"京都"}fujitasakinoMacBook-Air:Task7_PetsList fujitasak
 
 ```
+
 
 <br>
 
 - Postmanでの実行結果
-<img width="636" alt="第7回課題 GETリクエスト" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/a71af865-e7ff-4d85-9784-ed8603d4441b">
+- 
+<img width="645" alt="GET Postman birthplace" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/3de1f7b8-e4f1-4cf7-8d41-8842411126c3">
 
 <br>
 <br>
@@ -36,7 +37,14 @@ Date: Mon, 07 Aug 2023 05:26:37 GMT
 - curlコマンドでの実行結果
 
 ```
- fujitasaki$ curl 'http://localhost:8080/petnames' -H 'Content-Type: application/json' -d '{"id":3, "petsname":"Pocho", "age":3 }' -v
+ fujitasaki$ curl 'http://localhost:8080/petnames' \
+> -H 'Content-Type: application/json' \
+> -d '{
+>  "id":3,
+>  "petsname":"Pocho",
+>  "age":3,
+>  "birthplace": "京都"
+> }' -v
 *   Trying 127.0.0.1:8080...
 * Connected to localhost (127.0.0.1) port 8080 (#0)
 > POST /petnames HTTP/1.1
@@ -44,23 +52,28 @@ Date: Mon, 07 Aug 2023 05:26:37 GMT
 > User-Agent: curl/7.88.1
 > Accept: */*
 > Content-Type: application/json
-> Content-Length: 38
+> Content-Length: 67
 > 
 < HTTP/1.1 201 
 < Location: http://localhost:8080/petnames/id
 < Content-Type: text/plain;charset=UTF-8
 < Content-Length: 29
-< Date: Fri, 11 Aug 2023 06:18:51 GMT
+< Date: Fri, 18 Aug 2023 08:43:14 GMT
 < 
 * Connection #0 to host localhost left intact
-Petsname successfully createdfujitasakinoMacBook-Air:Task7_PetsList fujitasaki$ 
+Petsname successfully createdfujitasakinoMacBook-Air:~ fujitasaki$ 
+
 ```
+
 
 <br>
 
 - Postmanでの結果
 <br><br>
-  <img width="654" alt="スクリーンショット 2023-08-11 15 09 23" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/a2b88b53-4d12-4e71-a35f-e40b76f8005a">
+ 
+  <img width="642" alt="POST Postman birth~" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/e2f699bb-8584-414a-b0be-f9ed7f6fdd41">
+
+
 
 <br><br>
 
@@ -71,9 +84,15 @@ Petsname successfully createdfujitasakinoMacBook-Air:Task7_PetsList fujitasaki$
 - curlコマンド
 
 ```
-curl -X PATCH 'http://localhost:8080/petnames/1' \
--H 'Content-Type: application/json' \
--d '{"id":1, "petsName":"Hanako", "age":2}' -v
+
+fujitasaki$ curl -X PATCH 'http://localhost:8080/petnames/1' \
+> -H 'Content-Type: application/json' \
+> -d '{
+>  "id":1,
+>  "petsName": "Hanako",
+>  "age":2,
+>  "birthplace": "大阪"
+> }' -v
 *   Trying 127.0.0.1:8080...
 * Connected to localhost (127.0.0.1) port 8080 (#0)
 > PATCH /petnames/1 HTTP/1.1
@@ -81,23 +100,24 @@ curl -X PATCH 'http://localhost:8080/petnames/1' \
 > User-Agent: curl/7.88.1
 > Accept: */*
 > Content-Type: application/json
-> Content-Length: 38
+> Content-Length: 69
 > 
 < HTTP/1.1 200 
 < Content-Type: application/json
 < Transfer-Encoding: chunked
-< Date: Tue, 15 Aug 2023 09:37:03 GMT
+< Date: Fri, 18 Aug 2023 08:47:31 GMT
 < 
 * Connection #0 to host localhost left intact
-{"message":"petsname successfully updated"}fujitasakinoMacBook-Air:Task7_PetsList fujitasaki$ 
+{"message":"Petsname successfully updated"}fujitasakinoMacBook-Air:~ fujitasaki$ 
 
 ```
 
 <br>
 
 - Postmanでの結果
+- 
+<img width="779" alt="PATCH Postman birth~ " src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/82d3d756-eef9-4986-b2bc-c1dc8aa2134f">
 
-<img width="1440" alt="PATCH Postman" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/507cfd7f-1614-48a0-8639-0bf461dbcc85">
 
 <br><br>
 
@@ -119,17 +139,15 @@ fujitasaki$ curl --location --request DELETE 'http://localhost:8080/petnames/4' 
 < HTTP/1.1 200 
 < Content-Type: application/json
 < Transfer-Encoding: chunked
-< Date: Tue, 15 Aug 2023 13:39:18 GMT
+< Date: Fri, 18 Aug 2023 08:58:54 GMT
 < 
 * Connection #0 to host localhost left intact
-{"message":"successfully deleted"}fujitasakinoMacBook-Air:Task7_PetsList fujitasaki$ 
-
+{"message":"successfully deleted"}fujitasakinoMacBook-Air:~ fujitasaki$ 
 ```
 
 <br>
 
 - Postmanでの結果
 
-<img width="611" alt="Task7 DELETE Postman" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/07aa8b3c-d555-475d-b15b-a2035a42e5e7">
-
+<img width="761" alt="DELETE Postman birthplace" src="https://github.com/capyybara/Task7_RESTAPI/assets/137416338/3cacb3c2-91f3-425b-b3f0-b52b9075883f">
 
