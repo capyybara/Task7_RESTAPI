@@ -4,11 +4,13 @@ public class NameUpdateForm {
     public String petsname;
     public int id;
     public int age;
+    public String birthplace;
 
-    public NameUpdateForm(String petsname, int id, int age) {
+    public NameUpdateForm(String petsname, int id, int age, String birthplace) {
         this.petsname = petsname;
         this.id = id;
         this.age = age;
+        this.birthplace = birthplace;
     }
 
     public String getPetsname () {
@@ -21,5 +23,9 @@ public class NameUpdateForm {
 
     public int getAge() {
         return age;
+    }
+
+    public String getBirthplace() {
+        return birthplace;
     }
 }

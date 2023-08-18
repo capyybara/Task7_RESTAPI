@@ -6,10 +6,13 @@ public class PetsName {
     private String petsName;
     private  int age;
 
-    public PetsName(int id, String petsName, int age) {
+    private String birthplace;
+
+    public PetsName(int id, String petsName, int age, String birthplace) {
         this.id = id;
         this.petsName = petsName;
         this.age = age;
+        this.birthplace = birthplace;
     }
 
     public int getId() {
@@ -21,5 +24,9 @@ public class PetsName {
 
     public int getAge() {
         return age;
+    }
+
+    public String getBirthplace() {
+        return birthplace;
     }
 }
