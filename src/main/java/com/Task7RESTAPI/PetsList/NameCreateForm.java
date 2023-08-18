@@ -5,10 +5,13 @@ public class NameCreateForm {
     public int id;
     public int age;
 
-    public NameCreateForm(String petsname, int id, int age) {
+    public String birthplace;
+
+    public NameCreateForm(String petsname, int id, int age, String birthplace) {
         this.petsname = petsname;
         this.id = id;
         this.age = age;
+        this.birthplace = birthplace;
     }
 
     public String getPetsname() {
@@ -23,5 +26,7 @@ public class NameCreateForm {
         return age;
     }
 
-
+    public String getBirthplace() {
+        return birthplace;
+    }
 }

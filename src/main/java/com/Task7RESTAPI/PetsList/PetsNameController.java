@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +12,7 @@ import java.util.Map;
 // オリジナルの仕様を追加
 
 @RestController
+
 public class PetsNameController {
 
     //    講義をみて作ってみたもの
@@ -22,11 +22,12 @@ public class PetsNameController {
     }
 
 
-    //    id と紐付けたver. （「0001」にすると８進整数の⚠️が出る）
+    //    id, petsName, 年齢, 出生地とを紐付けたver. （「0001」にすると８進整数の⚠️が出る）
     @GetMapping("/petnames/{id}")
     public PetsName getNames(@PathVariable int id){
-        return  (new PetsName(1, "Tama", 1));
+        return  (new PetsName(1, "Tama", 2, "京都"));
     }
+
 
 
     //   POSTはブラウザでは確認できない????→HTMLの編集が必要になる？
@@ -42,7 +43,7 @@ public class PetsNameController {
 
     @PatchMapping("/petnames/{id}")
     public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody NameUpdateForm form){
-        return ResponseEntity.ok(Map.of("message", "petsname successfully updated"));
+        return ResponseEntity.ok(Map.of("message", "Petsname successfully updated"));
     }
 
     @DeleteMapping("/petnames/{id}")
